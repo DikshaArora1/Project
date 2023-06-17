@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+    int operand1, operand2;
+    char op;
+
+    cout << "Enter Operand 1 : ";
+    cin >> operand1;
+
+    cout << "Enter Operand 2 : ";
+    cin >> operand2;
+
+    cout << "Choose an Operator( + , - , * , / ) : ";
+    cin >> op;
+
+    switch (op)
+    {
+    case '+':
+        cout << operand1 << " + " << operand2 << " = " << operand1 + operand2;
+        break;
+
+    case '-':
+        cout << operand1 << " - " << operand2 << " = " << operand1 - operand2;
+        break;
+
+    case '*':
+        cout << operand1 << " * " << operand2 << " = " << operand1 * operand2;
+        break;
+
+    case '/':
+        cout << operand1 << " / " << operand2 << " = " << float(operand1) / operand2;
+        break;
+
+    default:
+        cout << "Choose an appropriate operator..!!!";
+        break;
+    }
+    return 0;
+}
