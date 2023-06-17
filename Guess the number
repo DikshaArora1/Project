@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int num = 68;
+
+int main()
+{
+    cout << "\n\n********GUESS THE NUMBER!!!********\n\n";
+    int count = 5;
+
+    do
+    {
+        cout << "You have " << count << " chance: \n";
+
+        int num1;
+        cout << "Enter the number (Between 1 to 100) : \n";
+        cin >> num1;
+
+        if (num1 == num)
+        {
+            cout << "Congratulations..!! You won the game.\n\n";
+            break;
+        }
+
+        else if (num1 < num)
+        {
+            cout << "You Entered Less Number...\n\n";
+            count--;
+        }
+
+        else if (num1 > num)
+        {
+            cout << "You Entered Greater Number...\n\n";
+            count--;
+        }
+
+    } while (count != 0);
+
+    if (count == 0)
+    {
+        cout << "You loss the game...!!!";
+    }
+
+    return 0;
+}
