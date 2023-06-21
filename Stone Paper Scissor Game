@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "WELCOME TO STONE PAPER AND SCISSOR GAME\n";
+    cout << "___________________________________________\n\n";
+
+    cout << "Game Begins...!!!\n";
+    cout << "You have Total 5 chances to play this game";
+
+    int chances = 5, com_score = 0, user_score = 0;
+    
+    while (chances > 0)
+    {
+        int computer_choice = rand() % 3 + 1;
+        cout << "\nChoose: \n\t1) Stone\n\t2) Paper\n\t3) Scissor\n";
+
+        int user_choice;
+        cin >> user_choice;
+
+        if (computer_choice == user_choice)
+        {
+            cout << "Oops!! It's Draw\n";
+            chances = chances - 1;
+            cout << "Game Score:\n\t User:" << user_score << "\n\tComputer:" << com_score << "\n";
+            cout << "choose again\n";
+            cout << "You have " << chances << " chances left!!\n";
+            continue;
+        }
+
+        else if ((computer_choice == 1 and user_choice == 3) |
+                 (computer_choice == 2 and user_choice == 1) |
+                 (computer_choice == 3 and user_choice == 2))
+        {
+            cout << "User choice is " << user_choice << " & Computer choice is " << computer_choice << "\n";
+            cout << "Computer won the game...!!!\n";
+            com_score = com_score + 1;
+            cout << "Game Score:\n\t User:" << user_score << "\n\tComputer:" << com_score << "\n";
+            chances = chances - 1;
+            cout << "You have " << chances << " chances left!!\n";
+            continue;
+        }
+
+        else if ((computer_choice == 1 and user_choice == 2) |
+                 (computer_choice == 2 and user_choice == 3) |
+                 (computer_choice == 3 and user_choice == 1))
+        {
+            cout << "User choice is " << user_choice << " & Computer choice is " << computer_choice << "\n";
+            cout << "You won the game...!!!\n";
+            user_score = user_score + 1;
+            cout << "Game Score:\n\t User:" << user_score << "\n\tComputer:" << com_score << "\n";
+            chances = chances - 1;
+            cout << "You have " << chances << " chances left!!\n";
+            continue;
+        }
+
+        else
+        {
+            cout << "Please enter valid input\n";
+            cout << "Game chance remaining\n" << chances;
+        }
+    }
+
+    cout << "\nEnd Game...!!!\n";
+    cout << "Final score:\n\tUser:" << user_score << "\n\tComputer:" << com_score << "\n";
+
+    if (user_score > com_score)
+        cout << "Congratulation! You win the Overall Game...!!!\n";
+    
+    else if (user_score == com_score)
+        cout << "Overall this game is draw...!!!\n";
+    
+    else
+        cout << "Bad luck! Computer win the Overall Game...!!!\n";
+    
+    return 0;
+}
