@@ -1,0 +1,143 @@
+#include <iostream>
+#include <stdlib.h>
+#include <conio.h>
+using namespace std;
+
+int main()
+{
+    const int maxList = 25;
+    int menu, nothing = 0, num;
+    char confirm;
+    string todo, todos[maxList] = {};
+
+    for (int i = 0; i < maxList; i++)
+    {
+        todos[i] = "";
+    }
+
+    do
+    {
+        system("cls");
+
+        cout << "\t\t****************************************\n";
+        cout << "\t\t|            TO  DO  LIST              |\n";
+        cout << "\t\t****************************************\n\n";
+        cout << "\t1. Input\n\t2. View List\n\t3. Delete List Item\n\t4. Exit\n";
+        cout << "=============================================\n";
+
+        cout << "Select Menu :\n";
+        cin >> menu;
+        cout << "=============================================";
+        system("cls");
+
+        switch (menu)
+        {
+        case 1:
+            cout << "\nEnter your To Do(Press enter to save) :\n";
+            cin >> todo;
+            cout << "save? (y/n) : ";
+            cin >> confirm;
+
+            if (confirm == 'y')
+            {
+                for (int i = 0; i < maxList; i++)
+                {
+                    if (todos[i] == "")
+                    {
+                        todos[i] = todo;
+                        break;
+                    }
+                }
+            }
+            break;
+
+        case 2:
+            cout << "To Do List\n";
+            cout << "======================================\n";
+
+            if (todos[0] == "")
+            {
+                nothing = nothing + 1;
+            }
+
+            if (nothing != maxList)
+            {
+                for (int i = 0; i < maxList; i++)
+                {
+                    if (todos[i] != "")
+                    {
+                        cout << i + 1 << ". " << todos[i] << "\n";
+                    }
+                }
+            }
+
+            else
+            {
+                cout << "Your To Do has not been entered, insert it first.\n";
+            }
+
+            cout << "==============================================\n";
+            cout << "*Press enter to return to the main menu";
+            getch();
+            break;
+
+        case 3:
+            cout << "To Do List\n";
+            cout << "======================================\n";
+
+            if (todos[0] == "")
+            {
+                nothing = nothing + 1;
+            }
+
+            if (nothing != maxList)
+            {
+                for (int i = 0; i < maxList; i++)
+                {
+                    if (todos[i] != "")
+                    {
+                        cout << i + 1 << ". " << todos[i] << "\n";
+                    }
+                }
+            }
+
+            cout << "\nEnter List Item which you want to delete : \n";
+            cin >> num;
+
+            for (int i = num - 1; i < maxList; i++)
+            {
+                if (todos[i] != "")
+                {
+                    todos[i] = todos[i + 1];
+                }
+            }
+
+            cout << "\nTo Do List\n";
+            cout << "======================================\n";
+
+            if (todos[0] == "")
+            {
+                nothing = nothing + 1;
+            }
+
+            if (nothing != maxList)
+            {
+                for (int i = 0; i < maxList; i++)
+                {
+                    if (todos[i] != "")
+                    {
+                        cout << i + 1 << ". " << todos[i] << "\n";
+                    }
+                }
+            }
+
+            cout << "==============================================\n";
+            cout << "*Press enter to return to the main menu";
+            getch();
+            break;
+        }
+
+    } while (menu > 0 && menu < 4);
+
+    return 0;
+}
